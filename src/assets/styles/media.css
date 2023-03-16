@@ -1,0 +1,16 @@
+@media (max-width:991px) {
+    .footer-clean .item.social > a {
+      margin-top:40px;
+    }
+  }
+  
+  @media (max-width:767px) {
+    .footer-clean .item.social > a {
+      margin-top:10px;
+    }
+  }
+  @media(max-width:1225px){
+  .header__link{
+    display: none;
+  }
+  }
