@@ -13,6 +13,8 @@ const Header = () =>{
                 <NavLink to='/Content' className="header__link">Главная</NavLink>
                 <NavLink to='/About' className="header__link">Конвертер</NavLink>
                 <NavLink to='/Notes' className="header__link">Заметки</NavLink>
+                <NavLink to='/Wheater' className="header__link">Погода</NavLink>
+
                 <Link to='/' className="header__link">Выйти</Link>
 
             

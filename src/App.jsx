@@ -14,6 +14,7 @@ import Authofex from "./components/Authofex/Authofex";
 import Videomodal from "./components/Videomodal/Videomodal";
 import Notes from "./components/Notes/Notes";
 import useTimeout from "./components/Usetimeout/Usetimeout";
+import Wheater from "./Wheater/Wheater";
 
 const App = () => {
 
@@ -31,6 +32,7 @@ const App = () => {
         <Route path='/Registr' element={<Registr/>}/>
         <Route path='/Authofex' element={<Authofex/>}/>
         <Route path='/Notes' element={<Notes/>}/>
+        <Route path='/Wheater' element={<Wheater/>}/>
       </Routes>
 
     </BrowserRouter>

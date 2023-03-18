@@ -673,4 +673,47 @@ footer {
     font-size: 28px;
    }
 }
+.conts{
+    display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 40px;
+row-gap: 40px;
+margin-top: 80px;
+}
+.block{
+    background-color: #0c2cab;
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 12px;
+    width: 500px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 8px;
+    &> img{
+        position: absolute;
+        top: 19px;
+        left: 400px;
+    }
+}
+.btns{
+    width: 250px;
+    height: 60px;
+    margin-left:  25px;
+    background-color: blue;
+    transform: translateY(-50px);
+    color: #fff;
+    font-size: 34px;
+    border-radius: 12px;
+   
+}
+.wheater{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 30vh;
+}
 // NOTES SECTION

@@ -4,20 +4,22 @@ const Registr = () => {
     const [password, setPassword] = useState('')
     const [userName, setUserName] = useState('')
 
-    const Login = async (userName, password) => {
-        
+    const Login = async (e,userName, password) => {
+        e.preventDefault()
         const req = {
             userName: userName,
             password: password,
             rememberMe: true
         }
+        console.log(req);
         console.log(userName, password);
         const resp = await fetch("https://hakatonforwin.azurewebsites.net/api/Auth/login", {
             method: "POST",
             headers: {
+                "accept": "*/*",
                 "Content-Type": "application/json"
             },
-            body:JSON.stringify(req)
+            body: JSON.stringify(req)
         }
         )
         const data = await resp.json()
@@ -58,7 +60,7 @@ const Registr = () => {
                     </div>
                 
                     <div  className="registr__button">
-                    <NavLink to='/content' ><button  className="registr-sub" onClick={()=>{Login(userName,password)}}>Submit</button></NavLink>
+                    <NavLink to='/content' ><button  className="registr-sub" onClick={(e)=>{Login(e,userName,password)}}>Submit</button></NavLink>
                     </div>
                     <NavLink to='/Authofex' className="registr__titles">Register</NavLink>
                 </div>

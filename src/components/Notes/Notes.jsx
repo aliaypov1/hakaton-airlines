@@ -51,11 +51,12 @@ const Notes = () =>{
             <div className="notes__container">
                 <div className="notes__inputs">
                     <label htmlFor="">
-                        <input type="text" placeholder="Заголовок" onChange={(e)=>{handleTitleInputChange(e)}}/>
+                        <input type="text" placeholder="Заголовок" name="ff" onChange={(e)=>{handleTitleInputChange(e)}}/>
                         <br/>
                         <input type="text" placeholder="Описание" onChange={(e)=>{handleDetailsInputChange(e)}}/>
                         <br/>
                         <button className="notes__btn" onClick={()=>{addNote(title,details)}}>Сохранить</button>
+                        <div>{title}<br></br>{details}</div>
                     </label>
                 </div>
             </div>
