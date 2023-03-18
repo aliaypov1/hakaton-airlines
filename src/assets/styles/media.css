@@ -9,8 +9,33 @@
       margin-top:10px;
     }
   }
-  @media(max-width:1225px){
+  @media(max-width:1300px){
   .header__link{
     display: none;
   }
+  .burger{
+    display: block;
   }
+  
+  }
+  @media(max-width:1000px){
+  .grids{
+    grid-template-columns: 1fr;
+
+  }
+  .cards__grid{
+    grid-template-columns: 1fr;
+  }
+    
+  .modal__content{
+    grid-template-columns: 1fr;
+  } 
+  .about__grid{
+    grid-template-columns: 1fr;
+  }
+  .input{
+    width: 300px;
+  }
+  .notes__grid{
+  grid-template-columns:1fr;
+   } }

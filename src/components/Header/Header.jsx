@@ -13,7 +13,6 @@ const Header = () =>{
                 <NavLink to='/Content' className="header__link">Главная</NavLink>
                 <NavLink to='/About' className="header__link">Конвертер</NavLink>
                 <NavLink to='/Notes' className="header__link">Заметки</NavLink>
-                <Link onClick={() => setOpenModal(true)} className="header__link">Зарегистрироваться</Link>
                 <Link to='/' className="header__link">Выйти</Link>
 
             

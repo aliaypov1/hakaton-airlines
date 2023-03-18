@@ -1,56 +1,42 @@
 import { NavLink, Link, Outlet } from "react-router-dom"
 import React, { useEffect, useState } from "react";
 const Registr = () => {
-    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [emailDirty, setEmailDirty] = useState(false)
-    const [passwordDirty, setPaswordDirty] = useState(false)
-    const [emailError, setEmailError] = useState('заполните это поле')
-    const [passwordError, setPasswordError] = useState('заполните это поле')
-    const [formValid, setFormValid] = useState(false)
+    const [userName, setUserName] = useState('')
 
-    useEffect(()=>{
-        if(emailError|| passwordError){
-            setFormValid(false)
-        }else{
-            setFormValid(true)
+    const Login = async (userName, password) => {
+        
+        const req = {
+            userName: userName,
+            password: password,
+            rememberMe: true
         }
-    },[emailError,passwordError])
+        console.log(userName, password);
+        const resp = await fetch("https://hakatonforwin.azurewebsites.net/api/Auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body:JSON.stringify(req)
+        }
+        )
+        const data = await resp.json()
+        console.log(data);
+        
 
-    const emailHandler = (e) => {
-        setEmail(e.target.value)
-        const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-        if (!re.test(String(e.target.value).toLowerCase())) {
-            setEmailError('емаил не коректен')
-        } else {
-            setEmailError('')
-        }
+        // end login
     }
 
-    const blurHandler = (e) => {
-        switch (e.target.name) {
-            case 'email':
-                setEmailDirty(true)
-                break
-            case 'password':
-                setPaswordDirty(true)
-                break
+   
 
-        }
-    }
+    
+    
     const passwordHandler = (e) => {
         setPassword(e.target.value)
-        if (e.target.value.length < 8) {
-            setPasswordError('пароль должен быть не менее 8 ')
+    }
 
-            if (!e.target.value) {
-                setPasswordError('заполните это поле')
-            }
-        } else if (e.target.value.length > 16) {
-            setPasswordError('пароль должен быть не более 16 ')
-        } else {
-            setPasswordError('')
-        }
+    const userNameHandler = (e) => {
+        setUserName(e.target.value)
     }
     return (
         <>
@@ -64,19 +50,17 @@ const Registr = () => {
                     <h2>Login</h2>
                     <div className="registr__inputs">
                         <label htmlFor="">
-                        {(emailDirty && emailError) && <div style={{ color: 'red' }}>{emailError}</div>}
-                            <input  onChange={e => emailHandler(e)}value={email} onBlur={e => blurHandler(e)} name="email" type="text" placeholder="login" />
+                            <input  onChange={e => userNameHandler(e)}value={userName}  name="userName" type="text" placeholder="username" />
                         </label>
                         <label htmlFor="">
-                        {(passwordError && passwordDirty) && <div style={{ color: 'red' }}>{passwordError}</div>}
-                            <input onChange={e => passwordHandler(e)} value={password} onBlur={e => blurHandler(e)} type="password" name="password" placeholder="Password" />
+                            <input onChange={e => passwordHandler(e)} value={password}  type="password" name="password" placeholder="password" />
                         </label>
                     </div>
                 
                     <div  className="registr__button">
-                    <NavLink to='/content' ><button  disabled={!formValid} className="registr-sub" >Submit</button></NavLink>
+                    <NavLink to='/content' ><button  className="registr-sub" onClick={()=>{Login(userName,password)}}>Submit</button></NavLink>
                     </div>
-                    <NavLink to='/Authofex' className="registr__titles">Registr</NavLink>
+                    <NavLink to='/Authofex' className="registr__titles">Register</NavLink>
                 </div>
             </div>
         </>

@@ -1,7 +1,43 @@
+import { useState } from "react";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
 const Notes = () =>{
+
+    const [title, setTitle] = useState("")
+    const [details, setDetails] = useState("")
+
+    const addNote = async (title, details) => {
+
+        console.log(title, details);
+        if(title && details){
+
+            const resp = await fetch("https://hakatonforwin.azurewebsites.net/api/Note/Create", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    title,
+                    details
+                })
+            })
+            
+            const data = await resp.json()
+            console.log(data);
+        } else{
+            alert("Вы не заполнили одно из полей")
+        }
+
+    }
+
+    const handleTitleInputChange = (e) => {
+        setTitle(e.target.value)
+    }
+    const handleDetailsInputChange = (e) => {
+        setDetails(e.target.value)
+    }
+
     return(
         <>
         <Header/>
@@ -15,8 +51,11 @@ const Notes = () =>{
             <div className="notes__container">
                 <div className="notes__inputs">
                     <label htmlFor="">
-                        <input type="text" />
-                        <button className="notes__btn">Сохранить</button>
+                        <input type="text" placeholder="Заголовок" onChange={(e)=>{handleTitleInputChange(e)}}/>
+                        <br/>
+                        <input type="text" placeholder="Описание" onChange={(e)=>{handleDetailsInputChange(e)}}/>
+                        <br/>
+                        <button className="notes__btn" onClick={()=>{addNote(title,details)}}>Сохранить</button>
                     </label>
                 </div>
             </div>

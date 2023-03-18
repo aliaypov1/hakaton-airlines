@@ -13,7 +13,7 @@ import Registr from "./components/Registr/Registr";
 import Authofex from "./components/Authofex/Authofex";
 import Videomodal from "./components/Videomodal/Videomodal";
 import Notes from "./components/Notes/Notes";
-
+import useTimeout from "./components/Usetimeout/Usetimeout";
 
 const App = () => {
 

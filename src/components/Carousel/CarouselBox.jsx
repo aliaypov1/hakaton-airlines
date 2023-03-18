@@ -2,9 +2,9 @@
 
 import Carousel from 'react-bootstrap/Carousel';
 
-import MyImages from "../Imagess/airlines.jpg";
-import MyImage from "../Imagess/air4.jpg";
-import MyImg from "../Imagess/air3.jpg";
+import MyImages from "../Imagess/photo.jpg";
+import MyImage from "../Imagess/photo2.jpg";
+import MyImg from "../Imagess/photo3.jpg";
 
 const  NoTransitionExample=()=> {
   return (
@@ -19,9 +19,7 @@ const  NoTransitionExample=()=> {
         />
         <Carousel.Caption>
          
-          <h2>АТАЙ ВЗЛЕТАЙ</h2>
-          <h2>Ilim-Airlines</h2>
-          <h2>AliLines</h2>
+          
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -33,9 +31,7 @@ const  NoTransitionExample=()=> {
 
         <Carousel.Caption>
          
-          <h2>АТАЙ ВЗЛЕТАЙ</h2>
-          <h2>Ilim-Airlines</h2>
-          <h2>AliLines</h2>
+        
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -47,11 +43,7 @@ const  NoTransitionExample=()=> {
 
         <Carousel.Caption>
         
-          <h2>
-            АТАЙ ВЗЛЕТАЙ
-          </h2>
-          <h2>Ilim-Airlines</h2>
-          <h2>AliLines</h2>
+          
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

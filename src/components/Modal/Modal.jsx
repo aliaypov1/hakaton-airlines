@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import useTimeout from "../Usetimeout/Usetimeout";
 
 
 const Modal = ({open,onClose}) =>{
@@ -73,7 +74,7 @@ const Modal = ({open,onClose}) =>{
                 {(passwordError && passwordDirty) && <div style={{ color: 'red' }}>{passwordError}</div>}
                 <input onChange={e => passwordHandler(e)} value={password} onBlur={e => blurHandler(e)} name="password" type="password" placeholder="password" />
                 </label>
-                
+               
 
                 
                 </div>
